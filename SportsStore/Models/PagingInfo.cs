@@ -6,6 +6,6 @@ public class PagingInfo
     public int ItemsPerPage { get; set; }
     public int CurrentPage { get; set; }
 
-    public int TotalPage =>
+    public int TotalPages =>
         (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
 }
