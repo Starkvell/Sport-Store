@@ -25,7 +25,7 @@ public class HomeControllerTests
         HomeController controller = new HomeController(mock.Object);
 
         // Act
-        ProductsListViewModel result = controller.Index()?.ViewData.Model as ProductsListViewModel ??
+        ProductsListViewModel result = controller.Index(null)?.ViewData.Model as ProductsListViewModel ??
                                        new ProductsListViewModel();
 
         // Assert
@@ -54,7 +54,7 @@ public class HomeControllerTests
 
         // Act
         ProductsListViewModel result =
-            controller.Index(2)?.ViewData.Model as ProductsListViewModel ?? new ProductsListViewModel();
+            controller.Index(null,2)?.ViewData.Model as ProductsListViewModel ?? new ProductsListViewModel();
 
         // Assert
         Product[] prodArray = result.Products.ToArray();
@@ -81,7 +81,7 @@ public class HomeControllerTests
             new HomeController(mock.Object) { PageSize = 3 };
         // Act
         ProductsListViewModel result =
-            controller.Index(2)?.ViewData.Model as ProductsListViewModel
+            controller.Index(null,2)?.ViewData.Model as ProductsListViewModel
             ?? new ProductsListViewModel();
         // Assert
         PagingInfo pageInfo = result.PagingInfo;
